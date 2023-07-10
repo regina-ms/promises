@@ -1,4 +1,4 @@
-import load from '../GameSavingLoader';
+import GameSavingLoader from '../GameSavingLoader';
 
 test('should return an obj', async () => {
   const result = {
@@ -8,5 +8,6 @@ test('should return an obj', async () => {
       id: 1, name: 'Hitman', level: 10, points: 2000,
     },
   };
-  expect(await load()).toEqual(result);
+  const mySave = new GameSavingLoader();
+  expect(await mySave.load()).toEqual(result);
 });
